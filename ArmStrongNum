@@ -1,0 +1,68 @@
+//WPTD check the user entered number is Armstrong number or not.
+
+import java.util.Scanner;
+
+public class SArmstrongNum 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Number ");
+		int num=sc.nextInt();                  //371    
+		
+		int temp=num;                          //371
+		
+		int count=0;
+		
+	//-----------------------------------------------------Count Digit-----------------------------------------------------------
+		while(num>0)                           //371>0 
+		{
+			count++;                           //Digit Count --> 1 |
+			
+			num=num/10;	                       //Remove the Digit --> 371/10 = 37        
+		}
+		
+		num=temp;                              //num=371;
+		    
+		int sum=0;
+		
+		System.out.print("\nDigits = ");
+		
+	//-----------------------------------------------------Separate the Digit----------------------------------------------------
+		while(num>0)                
+		{
+			int power=count;	
+			int res=1;
+				
+			int digit=num%10;        //Fetch the last Digit
+			
+			System.out.print(digit + " ");
+			
+	//-----------------------------------------------------Find the Power of Digits----------------------------------------------		
+			while(power>0)
+			{
+				res=res*digit;
+				power--;			
+			}
+			
+			sum=sum+res;
+			
+			num=num/10;
+		}
+		
+		System.out.println("\n\nPower = " +count);
+		
+		System.out.println("\nSum = " +sum);
+		
+		
+		if(sum==temp)
+		{
+			System.out.println("\nArmstrong Number ");
+		}
+		else
+		{
+			System.out.println("\nNot Armstrong Number ");
+		}
+	}
+}
